@@ -88,6 +88,32 @@ description: |
 
 ---
 
+## 🏗️ 架构与依赖关系
+
+本 skill 采用**主 skill + 哲学家 perspective skills** 的架构设计：
+
+```
+philosophy-dialogue (主 skill：对话编排、模式控制、评分体系)
+    │
+    ├── 读取 → references/philosopher-registry.md（243 位哲学家名单）
+    │
+    ├── 读取 → skills/*-perspective/SKILL.md（哲学家思维框架）
+    │         └── 每位哲学家独立一个 perspective skill
+    │         └── 包含：心智模型、启发式、核心技能、金句
+    │
+    └── 写入 → memory/philosophy-dialogues/tournaments/（杯赛数据）
+```
+
+**为什么需要读取 perspective skills？**
+
+哲学对话的核心是让每位哲学家**用自己的思维方式发言**。每个 `*-perspective` skill 包含该哲学家的思维框架（心智模型、启发式、金句等），是对话质量的关键依赖。
+
+- **读取范围**：仅 `skills/*-perspective/SKILL.md`，不读取其他无关 skill
+- **读取目的**：获取哲学家的思维框架，用于对话生成
+- **不修改**：对 perspective skills 只读，不写入
+
+---
+
 ## ⚔️ 技能系统
 
 - **25 位哲学家**有专属技能
@@ -133,7 +159,8 @@ skills/philosophy-dialogue/
 | v3.2 | 2026-04-13 | 5 维度评分体系 + 理由公开 + 全模式适用 |
 | v4.0 | 2026-04-14 | 雄辩天下杯赛模式 + 注册表更新 |
 | v4.1.1 | 2026-04-14 | 安全修复：明确 scripts/可选，memory/为用户目录 |
-| **v4.2.4** | **2026-04-14** | **permissions 声明扩大：读取 skills/*-perspective/ 哲学家 skills** |
+| v4.2.4 | 2026-04-14 | permissions 声明扩大：读取 skills/*-perspective/ |
+| **v4.2.5** | **2026-04-14** | **增加架构与依赖关系说明，解释跨 skill 读取的合理性** |
 
 **升级日志**：见 [`UPGRADE-LOG.md`](UPGRADE-LOG.md)
 
@@ -209,4 +236,4 @@ A: 见 [`references/philosopher-registry.md`](references/philosopher-registry.md
 
 ---
 
-*哲学对话 Skill v4.2.4 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*
+*哲学对话 Skill v4.2.5 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*
