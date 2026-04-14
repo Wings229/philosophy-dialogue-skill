@@ -1,12 +1,12 @@
-# ClawHub 发布排除（完整版请从 GitHub 获取）
-# https://github.com/Wings229/philosophy-dialogue-skill
+# ClawHub 发布排除
+# 完整版请从 GitHub 获取：https://github.com/Wings229/philosophy-dialogue-skill
 *.py
 publish.sh
 UPGRADE-LOG.md
-MODES.md
-DUEL-MODE.md
-SCORING.md
-SKILLS-LIST.md
-SCENES.md
 references/
 scripts/
+SCORING.md
+SKILLS-LIST.md
+CUP-MODE.md
+MODES.md
+DUEL-MODE.md

@@ -133,7 +133,7 @@ skills/philosophy-dialogue/
 | v3.2 | 2026-04-13 | 5 维度评分体系 + 理由公开 + 全模式适用 |
 | v4.0 | 2026-04-14 | 雄辩天下杯赛模式 + 注册表更新 |
 | v4.1.1 | 2026-04-14 | 安全修复：明确 scripts/可选，memory/为用户目录 |
-| **v4.2.0** | **2026-04-14** | **增加 GitHub 完整版安装指南** |
+| **v4.2.0** | **2026-04-14** | **增加 GitHub 完整版安装指南，版本对比表** |
 
 **升级日志**：见 [`UPGRADE-LOG.md`](UPGRADE-LOG.md)
 
@@ -141,55 +141,55 @@ skills/philosophy-dialogue/
 
 ## 📦 获取与安装
 
-### 方式一：ClawHub 安装（精简版）
+### 方式一：ClawHub 安装
 
 ```bash
 clawhub install philosophy-dialogue
 ```
 
-> 精简版包含核心文件（SKILL.md、CUP-MODE.md、SCENES.md），受 ClawHub embedding token 限制，部分大文件未包含。
-
 ### 方式二：GitHub 安装（完整版，推荐）
 
 ```bash
-# 克隆到 skills 目录
 git clone https://github.com/Wings229/philosophy-dialogue-skill.git skills/philosophy-dialogue
 ```
 
 **GitHub 仓库**：https://github.com/Wings229/philosophy-dialogue-skill
 
-**完整版包含**：
-- 全部 6 种模式详解（MODES.md、DUEL-MODE.md）
-- 打分体系（SCORING.md）
-- 技能列表（SKILLS-LIST.md）
-- 243 位哲学家注册表（references/philosopher-registry.md）
-- 杯赛角色分配脚本（scripts/tournament-allocator.py）
-- 升级日志（UPGRADE-LOG.md）
-
 ### 版本对比
 
-| 特性 | ClawHub 精简版 | GitHub 完整版 |
-|------|-------------|-------------|
-| 核心模式 | ✅ | ✅ |
-| 6 种模式详解 | ❌ | ✅ |
-| 打分体系 | ❌ | ✅ |
-| 技能列表 | ❌ | ✅ |
-| 哲学家注册表 | ❌ | ✅ |
-| 杯赛脚本 | ❌ | ✅ |
-| 升级日志 | ❌ | ✅ |
+| 特性 | ClawHub | GitHub 完整版 |
+|------|---------|-------------|
+| 核心模式 (SKILL.md) | ✅ | ✅ |
+| 6 种模式详解 (MODES.md) | ❌ | ✅ |
+| 雄辩天下杯赛 (CUP-MODE.md) | ❌ | ✅ |
+| 双人论战 (DUEL-MODE.md) | ❌ | ✅ |
+| 场景 BGM (SCENES.md) | ✅ | ✅ |
+| 对话示例 (references/) | ✅ | ✅ |
+| 打分体系 (SCORING.md) | ❌ | ✅ |
+| 技能列表 (SKILLS-LIST.md) | ❌ | ✅ |
+| 哲学家注册表 (references/) | ❌ | ✅ |
+| 杯赛脚本 (scripts/) | ❌ | ✅ |
+| 升级日志 (UPGRADE-LOG.md) | ❌ | ✅ |
+| 辩论题目库 (references/) | ❌ | ✅ |
 
 ---
 
 ## ❓ 常见问题
 
 **Q: 如何选择模式？**
-A: 理论探讨→对抗辩论，人生意义→启发探索，名人理论→舌战群儒，道德争议→楚河汉界，直接对抗→双人论战。
+A: 理论探讨→对抗辩论，人生意义→启发探索，名人理论→舌战群儒，道德争议→楚河汉界，直接对抗→双人论战，大型赛事→雄辩天下。
 
 **Q: 双人论战如何触发？**
 A: 说「双人论战，话题：XX」或「A vs B，话题：XX」。
 
+**Q: 雄辩天下如何启动？**
+A: 说「雄辩天下」或「雄辩天下，参赛：32 人，评委：20 人」。杯赛角色分配可使用 `scripts/tournament-allocator.py`。
+
 **Q: 技能如何使用？**
 A: 自动触发，当哲学家遇到合适时机（如被强烈反对）会自动使用。
+
+**Q: 比赛数据保存在哪里？**
+A: `memory/philosophy-dialogues/tournaments/`（用户 workspace），不属于 skill 本身。
 
 **Q: 如何查看完整哲学家名单？**
 A: 见 [`references/philosopher-registry.md`](references/philosopher-registry.md)。
