@@ -133,7 +133,7 @@ skills/philosophy-dialogue/
 | v3.2 | 2026-04-13 | 5 维度评分体系 + 理由公开 + 全模式适用 |
 | v4.0 | 2026-04-14 | 雄辩天下杯赛模式 + 注册表更新 |
 | v4.1.1 | 2026-04-14 | 安全修复：明确 scripts/可选，memory/为用户目录 |
-| **v4.2.0** | **2026-04-14** | **增加 GitHub 完整版安装指南，版本对比表** |
+| **v4.2.1** | **2026-04-14** | **增加 GitHub 完整版安装指南，版本对比表** |
 
 **升级日志**：见 [`UPGRADE-LOG.md`](UPGRADE-LOG.md)
 
@@ -160,14 +160,14 @@ git clone https://github.com/Wings229/philosophy-dialogue-skill.git skills/philo
 | 特性 | ClawHub | GitHub 完整版 |
 |------|---------|-------------|
 | 核心模式 (SKILL.md) | ✅ | ✅ |
-| 6 种模式详解 (MODES.md) | ❌ | ✅ |
-| 雄辩天下杯赛 (CUP-MODE.md) | ❌ | ✅ |
-| 双人论战 (DUEL-MODE.md) | ❌ | ✅ |
+| 6 种模式详解 (MODES.md) | ✅ | ✅ |
+| 双人论战 (DUEL-MODE.md) | ✅ | ✅ |
+| 打分体系 (SCORING.md) | ✅ | ✅ |
+| 技能列表 (SKILLS-LIST.md) | ✅ | ✅ |
 | 场景 BGM (SCENES.md) | ✅ | ✅ |
-| 对话示例 (references/) | ✅ | ✅ |
-| 打分体系 (SCORING.md) | ❌ | ✅ |
-| 技能列表 (SKILLS-LIST.md) | ❌ | ✅ |
-| 哲学家注册表 (references/) | ❌ | ✅ |
+| 哲学家注册表 (philosopher-registry.md) | ✅ | ✅ |
+| 对话示例 (example-dialogue.md) | ✅ | ✅ |
+| 雄辩天下杯赛 (CUP-MODE.md) | ✅ | ✅ |
 | 杯赛脚本 (scripts/) | ❌ | ✅ |
 | 升级日志 (UPGRADE-LOG.md) | ❌ | ✅ |
 | 辩论题目库 (references/) | ❌ | ✅ |

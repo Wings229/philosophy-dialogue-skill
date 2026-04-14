@@ -3,10 +3,6 @@
 *.py
 publish.sh
 UPGRADE-LOG.md
-references/
 scripts/
-SCORING.md
-SKILLS-LIST.md
-CUP-MODE.md
-MODES.md
-DUEL-MODE.md
+references/philosopher-debate-topics.md
+references/examples.md
