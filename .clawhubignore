@@ -1,0 +1,13 @@
+# 排除不需要发布的文件
+# 保留核心脚本
+*.py
+!scripts/tournament-allocator.py
+publish.sh
+
+# 排除大文件
+UPGRADE-LOG.md
+MODES.md
+DUEL-MODE.md
+SCORING.md
+SKILLS-LIST.md
+references/philosopher-registry.md

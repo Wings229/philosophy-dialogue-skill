@@ -1,0 +1,7 @@
+{
+  "name": "philosophy-dialogue",
+  "version": "4.1.1",
+  "description": "🔥 243 位思想家跨时空对话。6 种模式：对抗辩论/启发探索/舌战群儒/楚河汉界/双人论战/雄辩天下杯赛。scripts/含可选杯赛角色分配脚本，比赛数据存于用户 memory/目录。Philosophy dialogue system with 6 modes. Optional tournament scripts. Match data stored in user workspace.",
+  "keywords": ["philosophy", "dialogue", "debate", "perspective", "duel", "tournament"],
+  "license": "MIT"
+}
