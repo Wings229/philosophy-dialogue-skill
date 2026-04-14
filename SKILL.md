@@ -174,13 +174,15 @@ skills/philosophy-dialogue/
 clawhub install philosophy-dialogue
 ```
 
-### 方式二：GitHub 安装（完整版，推荐）
+### 方式二：GitHub 安装（完整版）
 
 ```bash
 git clone https://github.com/Wings229/philosophy-dialogue-skill.git skills/philosophy-dialogue
 ```
 
 **GitHub 仓库**：https://github.com/Wings229/philosophy-dialogue-skill
+
+> ⚠️ **安全提示**：clone 后建议先审查代码再使用。特别是 `scripts/tournament-allocator.py`，请确认其行为符合下方安全声明。
 
 **运行时依赖**：
 - 核心功能（对话/辩论）：无依赖，纯指令驱动
