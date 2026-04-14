@@ -132,9 +132,51 @@ skills/philosophy-dialogue/
 | v3.1 | 2026-04-13 | 双人论战：避免重复 + 集中投票 + 扩大评委 |
 | v3.2 | 2026-04-13 | 5 维度评分体系 + 理由公开 + 全模式适用 |
 | v4.0 | 2026-04-14 | 雄辩天下杯赛模式 + 注册表更新 |
-| **v4.1.1** | **2026-04-14** | **安全修复：明确 scripts/可选，memory/为用户目录** |
+| v4.1.1 | 2026-04-14 | 安全修复：明确 scripts/可选，memory/为用户目录 |
+| **v4.2.0** | **2026-04-14** | **增加 GitHub 完整版安装指南** |
 
 **升级日志**：见 [`UPGRADE-LOG.md`](UPGRADE-LOG.md)
+
+---
+
+## 📦 获取与安装
+
+### 方式一：ClawHub 安装（精简版）
+
+```bash
+clawhub install philosophy-dialogue
+```
+
+> 精简版包含核心文件（SKILL.md、CUP-MODE.md、SCENES.md），受 ClawHub embedding token 限制，部分大文件未包含。
+
+### 方式二：GitHub 安装（完整版，推荐）
+
+```bash
+# 克隆到 skills 目录
+git clone https://github.com/Wings229/philosophy-dialogue-skill.git skills/philosophy-dialogue
+```
+
+**GitHub 仓库**：https://github.com/Wings229/philosophy-dialogue-skill
+
+**完整版包含**：
+- 全部 6 种模式详解（MODES.md、DUEL-MODE.md）
+- 打分体系（SCORING.md）
+- 技能列表（SKILLS-LIST.md）
+- 243 位哲学家注册表（references/philosopher-registry.md）
+- 杯赛角色分配脚本（scripts/tournament-allocator.py）
+- 升级日志（UPGRADE-LOG.md）
+
+### 版本对比
+
+| 特性 | ClawHub 精简版 | GitHub 完整版 |
+|------|-------------|-------------|
+| 核心模式 | ✅ | ✅ |
+| 6 种模式详解 | ❌ | ✅ |
+| 打分体系 | ❌ | ✅ |
+| 技能列表 | ❌ | ✅ |
+| 哲学家注册表 | ❌ | ✅ |
+| 杯赛脚本 | ❌ | ✅ |
+| 升级日志 | ❌ | ✅ |
 
 ---
 
@@ -154,4 +196,4 @@ A: 见 [`references/philosopher-registry.md`](references/philosopher-registry.md
 
 ---
 
-*哲学对话 Skill v4.1.1 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | 安全修复 ✅*
+*哲学对话 Skill v4.2.0 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*

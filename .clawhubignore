@@ -1,13 +1,12 @@
-# 排除不需要发布的文件
-# 保留核心脚本
+# ClawHub 发布排除（完整版请从 GitHub 获取）
+# https://github.com/Wings229/philosophy-dialogue-skill
 *.py
-!scripts/tournament-allocator.py
 publish.sh
-
-# 排除大文件
 UPGRADE-LOG.md
 MODES.md
 DUEL-MODE.md
 SCORING.md
 SKILLS-LIST.md
-references/philosopher-registry.md
+SCENES.md
+references/
+scripts/
