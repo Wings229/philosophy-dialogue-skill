@@ -133,7 +133,7 @@ skills/philosophy-dialogue/
 | v3.2 | 2026-04-13 | 5 维度评分体系 + 理由公开 + 全模式适用 |
 | v4.0 | 2026-04-14 | 雄辩天下杯赛模式 + 注册表更新 |
 | v4.1.1 | 2026-04-14 | 安全修复：明确 scripts/可选，memory/为用户目录 |
-| **v4.2.1** | **2026-04-14** | **增加 GitHub 完整版安装指南，版本对比表** |
+| **v4.2.3** | **2026-04-14** | **安全扫描修复：元数据声明/版本一致/依赖说明/脚本安全声明** |
 
 **升级日志**：见 [`UPGRADE-LOG.md`](UPGRADE-LOG.md)
 
@@ -154,6 +154,19 @@ git clone https://github.com/Wings229/philosophy-dialogue-skill.git skills/philo
 ```
 
 **GitHub 仓库**：https://github.com/Wings229/philosophy-dialogue-skill
+
+**运行时依赖**：
+- 核心功能（对话/辩论）：无依赖，纯指令驱动
+- 杯赛角色分配脚本（`scripts/tournament-allocator.py`）：需要 **Python 3.6+**，仅使用标准库，无网络调用
+
+> 注：杯赛脚本为可选工具，不影响核心对话功能。手动分配角色也可以。
+
+**🔒 脚本安全声明**（`scripts/tournament-allocator.py`）：
+- ✅ 仅使用 Python 标准库（random, os, re, sys, json）
+- ✅ 无网络调用（无 urllib, requests, socket 等）
+- ✅ 无子进程调用（无 subprocess, os.system 等）
+- ✅ 文件读取：仅 `references/philosopher-registry.md` 和用户指定的题目文件
+- ✅ 文件写入：仅 `memory/philosophy-dialogues/tournaments/` 目录
 
 ### 版本对比
 
@@ -196,4 +209,4 @@ A: 见 [`references/philosopher-registry.md`](references/philosopher-registry.md
 
 ---
 
-*哲学对话 Skill v4.2.0 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*
+*哲学对话 Skill v4.2.3 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*
