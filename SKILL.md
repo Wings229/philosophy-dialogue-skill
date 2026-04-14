@@ -133,7 +133,7 @@ skills/philosophy-dialogue/
 | v3.2 | 2026-04-13 | 5 维度评分体系 + 理由公开 + 全模式适用 |
 | v4.0 | 2026-04-14 | 雄辩天下杯赛模式 + 注册表更新 |
 | v4.1.1 | 2026-04-14 | 安全修复：明确 scripts/可选，memory/为用户目录 |
-| **v4.2.3** | **2026-04-14** | **安全扫描修复：元数据声明/版本一致/依赖说明/脚本安全声明** |
+| **v4.2.4** | **2026-04-14** | **permissions 声明扩大：读取 skills/*-perspective/ 哲学家 skills** |
 
 **升级日志**：见 [`UPGRADE-LOG.md`](UPGRADE-LOG.md)
 
@@ -209,4 +209,4 @@ A: 见 [`references/philosopher-registry.md`](references/philosopher-registry.md
 
 ---
 
-*哲学对话 Skill v4.2.3 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*
+*哲学对话 Skill v4.2.4 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*
