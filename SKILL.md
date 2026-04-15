@@ -90,27 +90,28 @@ description: |
 
 ## 🏗️ 架构与依赖关系
 
-本 skill 采用**主 skill + 哲学家 perspective skills** 的架构设计：
+本 skill 采用**自包含架构**：243 位哲学家的蒸馏思维框架已内置在 skill 内部，无需外部依赖。
 
 ```
 philosophy-dialogue (主 skill：对话编排、模式控制、评分体系)
     │
     ├── 读取 → references/philosopher-registry.md（243 位哲学家名单）
     │
-    ├── 读取 → skills/*-perspective/SKILL.md（哲学家思维框架）
-    │         └── 每位哲学家独立一个 perspective skill
+    ├── 读取 → references/perspective/*-perspective/SKILL.md（内置哲学家思维框架）
+    │         └── 243 位哲学家的蒸馏文件已内置于 skill 内部
     │         └── 包含：心智模型、启发式、核心技能、金句
+    │         └── 也可通过外部 skills/*-perspective/ 读取（向下兼容）
     │
     └── 写入 → memory/philosophy-dialogues/tournaments/（杯赛数据）
 ```
 
-**为什么需要读取 perspective skills？**
+**哲学家思维框架（perspective skills）**
 
-哲学对话的核心是让每位哲学家**用自己的思维方式发言**。每个 `*-perspective` skill 包含该哲学家的思维框架（心智模型、启发式、金句等），是对话质量的关键依赖。
+哲学对话的核心是让每位哲学家**用自己的思维方式发言**。每位哲学家的 perspective SKILL.md 包含该哲学家的思维框架（心智模型、启发式、金句等），是对话质量的关键依赖。
 
-- **读取范围**：仅 `skills/*-perspective/SKILL.md`，不读取其他无关 skill
-- **读取目的**：获取哲学家的思维框架，用于对话生成
-- **不修改**：对 perspective skills 只读，不写入
+- **内置路径**（推荐）：`references/perspective/*-perspective/SKILL.md` —— 已集成在 skill 内部，无需额外安装
+- **外部路径**（向下兼容）：`skills/*-perspective/SKILL.md` —— 若工作区存在独立的 perspective skills 也可读取
+- **只读不写**：对 perspective skills 仅读取，不修改
 
 ---
 
@@ -137,12 +138,17 @@ skills/philosophy-dialogue/
 ├── SCENES.md (场景 BGM)
 ├── SKILLS-LIST.md (技能列表)
 ├── UPGRADE-LOG.md (升级日志)
-├── package.json (v4.1.1)
+├── package.json
 ├── .clawhubignore (发布排除文件)
 ├── scripts/ (可选：杯赛角色分配脚本)
 │   └── tournament-allocator.py
 └── references/
-    └── philosopher-registry.md (哲学家名单)
+    ├── philosopher-registry.md (哲学家名单，路径指向内置蒸馏文件)
+    └── perspective/ (🆕 243 位哲学家蒸馏思维框架，已内置)
+        ├── confucius-perspective/SKILL.md
+        ├── nietzsche-perspective/SKILL.md
+        ├── zhuangzi-perspective/SKILL.md
+        └── ... (243 个目录)
 ```
 
 **注意**: 比赛数据保存在 `memory/philosophy-dialogues/tournaments/`（用户 workspace），不属于 skill 本身。
@@ -160,7 +166,8 @@ skills/philosophy-dialogue/
 | v4.0 | 2026-04-14 | 雄辩天下杯赛模式 + 注册表更新 |
 | v4.1.1 | 2026-04-14 | 安全修复：明确 scripts/可选，memory/为用户目录 |
 | v4.2.4 | 2026-04-14 | permissions 声明扩大：读取 skills/*-perspective/ |
-| **v4.2.5** | **2026-04-14** | **增加架构与依赖关系说明，解释跨 skill 读取的合理性** |
+| v4.2.5 | 2026-04-14 | 增加架构与依赖关系说明，解释跨 skill 读取的合理性 |
+| **v4.3.0** | **2026-04-16** | **蒸馏人物私域化：243 位哲学家思维框架内置于 skill 内部** |
 
 **升级日志**：见 [`UPGRADE-LOG.md`](UPGRADE-LOG.md)
 
@@ -168,19 +175,23 @@ skills/philosophy-dialogue/
 
 ## 📦 获取与安装
 
-### 方式一：ClawHub 安装
+### 方式一：ClawHub 安装（轻量版）
 
 ```bash
 clawhub install philosophy-dialogue
 ```
 
-### 方式二：GitHub 安装（完整版）
+> ℹ️ ClawHub 版包含核心模式文件和注册表，不包含 `references/perspective/`。对话时 AI 会基于自身知识生成哲学家视角。
+
+### 方式二：GitHub 安装（完整版，含蒸馏思维框架）
 
 ```bash
 git clone https://github.com/Wings229/philosophy-dialogue-skill.git skills/philosophy-dialogue
 ```
 
 **GitHub 仓库**：https://github.com/Wings229/philosophy-dialogue-skill
+
+> 📦 **完整版特有**：`references/perspective/` 目录包含 243 位哲学家的蒸馏思维框架文件。这些文件让每位哲学家以精确的个人思维方式发言，显著提升对话质量。
 
 > ⚠️ **安全提示**：clone 后建议先审查代码再使用。特别是 `scripts/tournament-allocator.py`，请确认其行为符合下方安全声明。
 
@@ -210,6 +221,7 @@ git clone https://github.com/Wings229/philosophy-dialogue-skill.git skills/philo
 | 哲学家注册表 (philosopher-registry.md) | ✅ | ✅ |
 | 对话示例 (example-dialogue.md) | ✅ | ✅ |
 | 雄辩天下杯赛 (CUP-MODE.md) | ✅ | ✅ |
+| 🆕 蒸馏思维框架 (references/perspective/) | ❌ 需从 GitHub 获取 | ✅ 内置 243 位 |
 | 杯赛脚本 (scripts/) | ❌ | ✅ |
 | 升级日志 (UPGRADE-LOG.md) | ❌ | ✅ |
 | 辩论题目库 (references/) | ❌ | ✅ |
@@ -238,4 +250,4 @@ A: 见 [`references/philosopher-registry.md`](references/philosopher-registry.md
 
 ---
 
-*哲学对话 Skill v4.2.5 | 2026-04-14 更新 | 6 种模式 | 243 位哲学家 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*
+*哲学对话 Skill v4.3.0 | 2026-04-16 更新 | 6 种模式 | 243 位哲学家 | 蒸馏思维框架已内置 | [GitHub 完整版](https://github.com/Wings229/philosophy-dialogue-skill)*
